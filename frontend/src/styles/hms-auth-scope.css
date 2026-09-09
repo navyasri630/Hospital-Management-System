@@ -1,0 +1,99 @@
+/*
+ * Styles for the preserved Login/Register pages (carried over from the
+ * original hms-project design). These use common class names (.btn,
+ * .form-group, .input, etc.) that this codebase's own theme.css ALSO
+ * defines for its own pages - so every rule here is nested under the
+ * .hms-auth-scope wrapper class (present on the root <div> of Login.jsx
+ * and Register.jsx) to guarantee it can never bleed into the rest of the
+ * app's styling.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+.hms-auth-scope {
+  --auth-color-primary: #1D5FBF;
+  --auth-color-primary-dark: #16478F;
+  --auth-color-bg: #F5F7FA;
+  --auth-color-surface: #FFFFFF;
+  --auth-color-surface-alt: #EEF2F8;
+  --auth-color-border: #E0E6EF;
+  --auth-color-border-strong: #C7D2E3;
+  --auth-color-text: #1B2436;
+  --auth-color-text-muted: #5C6B85;
+  --auth-color-danger: #C24545;
+  --auth-font-display: 'Manrope', 'Segoe UI', sans-serif;
+  --auth-font-body: 'Inter', 'Segoe UI', sans-serif;
+  --auth-radius-sm: 6px;
+  --auth-radius-md: 10px;
+
+  font-family: var(--auth-font-body);
+  color: var(--auth-color-text);
+}
+
+.hms-auth-scope h1, .hms-auth-scope h2, .hms-auth-scope h3 {
+  font-family: var(--auth-font-display);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.hms-auth-scope a { color: inherit; text-decoration: none; }
+.hms-auth-scope button { font-family: inherit; cursor: pointer; }
+.hms-auth-scope input { font-family: inherit; }
+
+/* ---------- Buttons ---------- */
+.hms-auth-scope .btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border: none; border-radius: var(--auth-radius-md);
+  padding: 10px 16px; font-size: 14px; font-weight: 600;
+  transition: transform 150ms ease, background 150ms ease;
+}
+.hms-auth-scope .btn:active { transform: scale(0.97); }
+.hms-auth-scope .btn-primary { background: var(--auth-color-primary); color: #fff; width: 100%; }
+.hms-auth-scope .btn-primary:hover { background: var(--auth-color-primary-dark); }
+.hms-auth-scope .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ---------- Forms ---------- */
+.hms-auth-scope .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.hms-auth-scope .form-group label { font-size: 13px; font-weight: 600; color: var(--auth-color-text-muted); }
+.hms-auth-scope .form-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (max-width: 640px) { .hms-auth-scope .form-row { grid-template-columns: 1fr; } }
+
+.hms-auth-scope .input {
+  border: 1px solid var(--auth-color-border);
+  border-radius: var(--auth-radius-sm);
+  padding: 9px 12px;
+  font-size: 14px;
+  background: var(--auth-color-surface);
+  color: var(--auth-color-text);
+  width: 100%;
+  transition: border-color 150ms ease;
+}
+.hms-auth-scope .input:focus { border-color: var(--auth-color-primary); outline: none; }
+.hms-auth-scope .input.error { border-color: var(--auth-color-danger); }
+.hms-auth-scope .field-error { font-size: 12px; color: var(--auth-color-danger); }
+
+/* ---------- Auth shell layout ---------- */
+.hms-auth-scope.auth-shell {
+  min-height: 100vh; display: flex; align-items: stretch;
+  background: var(--auth-color-bg);
+}
+.hms-auth-scope .auth-visual {
+  flex: 1.1; background: linear-gradient(160deg, var(--auth-color-primary-dark), var(--auth-color-primary));
+  color: #fff; display: flex; flex-direction: column; justify-content: space-between;
+  padding: 48px; position: relative; overflow: hidden;
+}
+.hms-auth-scope .auth-visual .brand { display: flex; align-items: center; gap: 12px; font-family: var(--auth-font-display); font-weight: 800; font-size: 20px; position: relative; z-index: 1; }
+.hms-auth-scope .auth-visual .brand .logo-mark { width: 42px; height: 42px; border-radius: 12px; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; }
+.hms-auth-scope .auth-visual .pitch { position: relative; z-index: 1; max-width: 420px; }
+.hms-auth-scope .auth-visual .pitch h1 { font-size: 34px; line-height: 1.15; margin-bottom: 14px; color: #fff; }
+.hms-auth-scope .auth-visual .pitch p { font-size: 15px; opacity: 0.85; line-height: 1.6; }
+.hms-auth-scope .auth-visual .stat-row { display: flex; gap: 28px; position: relative; z-index: 1; }
+.hms-auth-scope .auth-visual .stat-row div strong { display: block; font-size: 24px; font-family: var(--auth-font-display); }
+.hms-auth-scope .auth-visual .stat-row div span { font-size: 12px; opacity: 0.75; }
+
+.hms-auth-scope .auth-form-side { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 24px; }
+.hms-auth-scope .auth-form-card { width: 100%; max-width: 380px; }
+.hms-auth-scope .auth-form-card h2 { font-size: 24px; margin-bottom: 6px; color: var(--auth-color-text); }
+.hms-auth-scope .auth-form-card .sub { color: var(--auth-color-text-muted); font-size: 14px; margin-bottom: 26px; }
+.hms-auth-scope .auth-links { display: flex; justify-content: space-between; margin-top: 6px; font-size: 13px; }
+.hms-auth-scope .auth-links a { color: var(--auth-color-primary); font-weight: 600; }
+
+@media (max-width: 860px) { .hms-auth-scope .auth-visual { display: none; } }

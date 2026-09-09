@@ -1,0 +1,233 @@
+:root {
+  /* Color -- "clinical trust" palette, not a generic template default */
+  --ink: #16241f;
+  --teal-900: #0e3d3d;
+  --teal-700: #14544f;
+  --teal-500: #1f7a6c;
+  --slate-500: #3a5a78;
+  --mint-500: #2e8b74;
+  --amber-500: #c98a1f;
+  --coral-500: #c74f43;
+  --paper: #f4f7f6;
+  --paper-raised: #ffffff;
+  --line: #dbe4e0;
+  --line-strong: #b9c8c2;
+  --muted: #5b6f68;
+
+  /* Type */
+  --font-display: "Spectral", Georgia, serif;
+  --font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Layout */
+  --radius: 8px;
+  --radius-sm: 4px;
+  --shadow-card: 0 1px 2px rgba(14, 61, 61, 0.06), 0 1px 12px rgba(14, 61, 61, 0.04);
+  --sidebar-w: 236px;
+}
+
+[data-theme="dark"] {
+  --ink: #e7f1ee;
+  --teal-900: #0a2b2b;
+  --teal-700: #15403c;
+  --teal-500: #2b8a75;
+  --slate-500: #7f9fbc;
+  --mint-500: #3fae92;
+  --amber-500: #dba43f;
+  --coral-500: #e07a6d;
+  --paper: #0f1a18;
+  --paper-raised: #16241f;
+  --line: #26362f;
+  --line-strong: #364b42;
+  --muted: #8ba39a;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 12px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0 0 0.4em 0;
+  color: var(--teal-900);
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: var(--teal-700);
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--teal-500);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-primary {
+  background: var(--teal-700);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--teal-900);
+}
+.btn-outline {
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--teal-900);
+}
+.btn-outline:hover {
+  border-color: var(--teal-700);
+}
+.btn-danger {
+  background: #fff;
+  border-color: var(--coral-500);
+  color: var(--coral-500);
+}
+.btn-danger:hover {
+  background: var(--coral-500);
+  color: #fff;
+}
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  font-family: var(--font-mono);
+}
+.badge-pending {
+  background: #fbf1dc;
+  color: var(--amber-500);
+}
+.badge-confirmed {
+  background: #e2f1ee;
+  color: var(--mint-500);
+}
+.badge-completed {
+  background: #e4eef8;
+  color: var(--slate-500);
+}
+.badge-cancelled {
+  background: #f8e7e5;
+  color: var(--coral-500);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal-900);
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 14px;
+  background: #fff;
+  color: var(--ink);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.error-banner {
+  background: #f8e7e5;
+  border: 1px solid var(--coral-500);
+  color: var(--coral-500);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--muted);
+}
