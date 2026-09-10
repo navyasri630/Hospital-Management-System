@@ -44,14 +44,6 @@ npm install
 npm run dev
 ```
 
-## Roles
-
-| **Role**     | **Access**                                                       |
-| ------------ | ---------------------------------------------------------------- |
-| Admin        | Full access — staff, doctors, beds, billing, reports, audit logs |
-| Receptionist | Patients, appointments, admissions, beds, billing                |
-| Doctor       | Own patients, appointments, admissions                           |
-| Patient      | Own appointments, admissions, bills, documents                   |
 
 ## License
 
